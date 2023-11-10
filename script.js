@@ -65,7 +65,20 @@ const modifyProduct = () => {
     });
 };
 
-// DELETING EXISTING PRODUCT
+// DELETE EXISTING PRODUCT
+const deleteProduct = () => {
+  const confirm = alert("Are you sure you want to remove the product? The operation is IRREVERSIBLE!");
+
+  if (confirm) {
+    fetch(URL, {
+      method: "DELETE",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRkZWM5NTI1NGU4ODAwMTgzZjE4N2QiLCJpYXQiOjE2OTk2MDU2NTMsImV4cCI6MTcwMDgxNTI1M30.a88GyzWot7RHVgsur2ZCWXlXUjky6Hap3nM6K4StKBk",
+      },
+    });
+  }
+};
 
 window.onload = () => {
   if (productParamId) {
@@ -99,7 +112,22 @@ window.onload = () => {
     document.querySelector(".btn-info").onclick = () => {
       modifyProduct();
     };
+
     document.querySelector(".btn-danger").classList.remove("d-none");
+    document.querySelector(".btn-danger").onclick = () => {
+      const confirmation = confirm("Are you sure you want to remove the product? The operation is IRREVERSIBLE!");
+
+      if (confirmation) {
+        fetch(URL, {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRkZWM5NTI1NGU4ODAwMTgzZjE4N2QiLCJpYXQiOjE2OTk2MDU2NTMsImV4cCI6MTcwMDgxNTI1M30.a88GyzWot7RHVgsur2ZCWXlXUjky6Hap3nM6K4StKBk",
+          },
+        });
+        window.location.assign("./homepage.html");
+      }
+    };
 
     document.getElementsByTagName("h4")[0].innerText = "- Modify Product";
   } else {
@@ -110,6 +138,7 @@ window.onload = () => {
     form.onsubmit = (e) => {
       e.preventDefault();
       submitNewProduct(e);
+      form.reset();
     };
   }
 };
