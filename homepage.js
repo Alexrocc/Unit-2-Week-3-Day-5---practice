@@ -4,15 +4,13 @@ const createCards = () => {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRkZWM5NTI1NGU4ODAwMTgzZjE4N2QiLCJpYXQiOjE2OTk2MDU2NTMsImV4cCI6MTcwMDgxNTI1M30.a88GyzWot7RHVgsur2ZCWXlXUjky6Hap3nM6K4StKBk",
-      "Content-Type": "application/json",
     },
   })
     .then((response) => {
       if (!response) {
         throw new Error();
       }
-      response.json();
-      console.log(response);
+      return response.json();
     })
     .then((products) => {
       console.log(products);
