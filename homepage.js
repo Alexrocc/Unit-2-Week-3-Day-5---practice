@@ -23,12 +23,14 @@ const createCards = () => {
                                 <img src="${product.imageUrl}" class="card-img-top"/>
                                 <div class="card-body">
                                     <h5 class="card-title">${product.name}</h5>
-                                    <p class="card-text">${product.brand} / ${product.price}</p>
+                                    <p class="card-text">${product.brand} / ${product.price}$</p>
                                     <p class="card-text">${product.description}</p>
-                                    <a href="./details.html?productId=${product._id}" class="btn btn-success">Details</a>
+                                    <a href="./details.html?Id=${product._id}" class="btn btn-success">Details</a>
+                                    <a href="./back-office.html?Id=${product._id}" target="_blank" class="btn btn-primary">Modify</a>
                                 </div>
                             </div>    `;
         row.appendChild(col);
+        console.log(product._id);
       });
     })
     .catch((error) => {
