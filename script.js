@@ -1,4 +1,7 @@
-const URL = "https://striveschool-api.herokuapp.com/api/product/";
+const productParamId = new URLSearchParams(window.location.search).get("Id");
+const URL = productParamId
+  ? "https://striveschool-api.herokuapp.com/api/product/" + productParamId
+  : "https://striveschool-api.herokuapp.com/api/product/";
 
 const submitNewProduct = () => {
   const newProductObj = {
@@ -8,7 +11,6 @@ const submitNewProduct = () => {
     imageUrl: document.getElementById("productImage").value,
     price: document.getElementById("productPrice").value,
   };
-
   fetch(URL, {
     method: "POST",
     body: JSON.stringify(newProductObj),
