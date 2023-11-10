@@ -19,9 +19,9 @@ const createCards = () => {
         const col = document.createElement("div");
         col.classList.add("col-6", "col-md-4", "mt-4", "gx-3");
 
-        col.innerHTML = `<div class="card, w-100">
+        col.innerHTML = `<div class="card h-100 d-flex flex-column justify-content-start">
                                 <img src="${product.imageUrl}" class="card-img-top"/>
-                                <div class="card-body">
+                                <div class="card-body flex-grow-0 mt-auto">
                                     <h5 class="card-title">${product.name}</h5>
                                     <p class="card-text">${product.brand} / ${product.price}$</p>
                                     <p class="card-text">${product.description}</p>
