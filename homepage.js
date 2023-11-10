@@ -17,9 +17,9 @@ const createCards = () => {
       const row = document.querySelector(".row");
       products.forEach((product) => {
         const col = document.createElement("div");
-        col.classList.add("col-6", "col-md-4", "col-lg-3");
+        col.classList.add("col-6", "col-md-4", "mt-4", "gx-3");
 
-        col.innerHTML = `<div class="card">
+        col.innerHTML = `<div class="card, w-100">
                                 <img src="${product.imageUrl}" class="card-img-top"/>
                                 <div class="card-body">
                                     <h5 class="card-title">${product.name}</h5>
