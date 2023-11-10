@@ -80,7 +80,18 @@ const deleteProduct = () => {
   }
 };
 
+const formReset = () => {
+  const resetConfirm = confirm("Are you sure you want to empty all fields?");
+
+  if (resetConfirm) {
+    document.getElementById("productForm").reset();
+  }
+};
 window.onload = () => {
+  const form = document.getElementById("productForm");
+  const resetBtn = document.querySelector(".btn-secondary");
+  resetBtn.addEventListener("click", formReset);
+
   if (productParamId) {
     fetch(URL, {
       method: "GET",
@@ -134,7 +145,7 @@ window.onload = () => {
     document.querySelector(".btn-primary").classList.remove("d-none");
     document.querySelector(".btn-info").classList.add("d-none");
     document.querySelector(".btn-danger").classList.add("d-none");
-    const form = document.getElementById("productForm");
+
     form.onsubmit = (e) => {
       e.preventDefault();
       submitNewProduct(e);
